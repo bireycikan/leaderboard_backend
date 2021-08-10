@@ -8,9 +8,7 @@ const zadd = redisDB.redisFuncAsync('zadd');
 function waitForMem(ms) {
   return new Promise((resolve, reject) => {
     try {
-      process.nextTick(() => {
-        resolve()
-      }, ms);
+      process.nextTick(resolve, ms);
     } catch (error) {
       reject(error);
     }
